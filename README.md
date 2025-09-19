@@ -1,4 +1,4 @@
-# Expense Tracker - Sistema de Lançamento de Despesas
+# Sistema de Lançamento de Despesas
 
 Sistema completo para gerenciamento de despesas com categorias, estabelecimentos e lançamentos. Desenvolvido com Node.js, Express e SQLite, oferece uma API REST completa e interface web responsiva.
 
