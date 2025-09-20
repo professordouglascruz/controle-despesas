@@ -79,6 +79,7 @@ describe('LancamentoController Integration Tests', () => {
         dataLancamento: '2024-01-15',
         dataPagamento: '2024-01-15',
         valor: 150.50,
+        descricao: 'Almoço no restaurante',
         codigoCategoria: 'CAT001',
         codigoEstabelecimento: 'EST001'
       };
@@ -92,6 +93,7 @@ describe('LancamentoController Integration Tests', () => {
         dataLancamento: '2024-01-15T00:00:00.000Z',
         dataPagamento: '2024-01-15T00:00:00.000Z',
         valor: 150.50,
+        descricao: 'Almoço no restaurante',
         codigoCategoria: 'CAT001',
         codigoEstabelecimento: 'EST001'
       });
@@ -177,6 +179,7 @@ describe('LancamentoController Integration Tests', () => {
           dataLancamento: '2024-01-15',
           dataPagamento: '2024-01-15',
           valor: 100.00,
+          descricao: 'Primeiro lançamento',
           codigoCategoria: 'CAT001',
           codigoEstabelecimento: 'EST001'
         },
@@ -184,6 +187,7 @@ describe('LancamentoController Integration Tests', () => {
           dataLancamento: '2024-01-16',
           dataPagamento: '2024-01-16',
           valor: 200.00,
+          descricao: 'Segundo lançamento',
           codigoCategoria: 'CAT001',
           codigoEstabelecimento: 'EST001'
         }

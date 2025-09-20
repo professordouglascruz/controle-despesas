@@ -49,6 +49,7 @@ describe('Lancamento Routes', () => {
           dataLancamento: '2024-01-01',
           dataPagamento: '2024-01-01',
           valor: 100.50,
+          descricao: 'Teste de lançamento',
           codigoCategoria: 'CAT1',
           codigoEstabelecimento: 'EST1'
         })
@@ -60,7 +61,10 @@ describe('Lancamento Routes', () => {
     test('should configure PUT /api/lancamentos/:id route', async () => {
       const response = await request(app)
         .put('/api/lancamentos/1')
-        .send({ valor: 200.00 })
+        .send({ 
+          valor: 200.00,
+          descricao: 'Valor atualizado'
+        })
         .expect('Content-Type', /json/);
 
       expect(response.status).toBeDefined();

@@ -61,6 +61,7 @@ describe('LancamentoService', () => {
       dataLancamento: '2024-01-15',
       dataPagamento: '2024-01-15',
       valor: 100.50,
+      descricao: 'Compras do supermercado',
       codigoCategoria: 'CAT001',
       codigoEstabelecimento: 'EST001'
     };
@@ -235,7 +236,10 @@ describe('LancamentoService', () => {
 
   describe('update', () => {
     const id = 1;
-    const updateData = { valor: 200.00 };
+    const updateData = { 
+      valor: 200.00,
+      descricao: 'Descrição atualizada'
+    };
 
     it('deve atualizar lançamento existente', async () => {
       const expectedLancamento = { id, ...updateData };

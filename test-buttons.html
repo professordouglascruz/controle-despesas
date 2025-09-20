@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teste dos Botões</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        .test-result { padding: 10px; margin: 10px 0; border-radius: 4px; }
+        .success { background-color: #d4edda; color: #155724; border: 1px solid #c3e6cb; }
+        .error { background-color: #f8d7da; color: #721c24; border: 1px solid #f5c6cb; }
+        button { margin: 5px; padding: 8px 16px; }
+        .btn-warning { background-color: #ffc107; border: none; color: #212529; }
+        .btn-danger { background-color: #dc3545; border: none; color: white; }
+    </style>
+</head>
+<body>
+    <h1>Teste dos Botões de Edição e Exclusão</h1>
+    
+    <div id="results"></div>
+    
+    <h2>Teste Simulado</h2>
+    <div>
+        <button class="btn-warning btn-editar" data-categoria='{"codigo":"TEST001","descricao":"Categoria Teste"}'>
+            Editar
+        </button>
+        <button class="btn-danger btn-excluir" data-categoria='{"codigo":"TEST001","descricao":"Categoria Teste"}'>
+            Excluir
+        </button>
+    </div>
+
+    <script>
+        const results = document.getElementById('results');
+        
+        function addResult(message, isSuccess = true) {
+            const div = document.createElement('div');
+            div.className = `test-result ${isSuccess ? 'success' : 'error'}`;
+            div.textContent = message;
+            results.appendChild(div);
+        }
+        
+        // Simular as funções que existem no sistema
+        function mostrarFormularioEdicao(categoria) {
+            addResult(`✅ Botão Editar funcionando! Categoria: ${categoria.descricao}`);
+        }
+        
+        function confirmarExclusao(categoria) {
+            addResult(`✅ Botão Excluir funcionando! Categoria: ${categoria.descricao}`);
+        }
+        
+        // Testar se os event listeners funcionam
+        document.addEventListener('DOMContentLoaded', function() {
+            addResult('🔄 Iniciando testes...');
+            
+            // Adicionar event listeners (mesmo código do sistema)
+            document.querySelectorAll('.btn-editar').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    try {
+                        const categoria = JSON.parse(this.getAttribute('data-categoria'));
+                        mostrarFormularioEdicao(categoria);
+                    } catch (error) {
+                        addResult(`❌ Erro no botão Editar: ${error.message}`, false);
+                    }
+                });
+            });
+            
+            document.querySelectorAll('.btn-excluir').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    try {
+                        const categoria = JSON.parse(this.getAttribute('data-categoria'));
+                        confirmarExclusao(categoria);
+                    } catch (error) {
+                        addResult(`❌ Erro no botão Excluir: ${error.message}`, false);
+                    }
+                });
+            });
+            
+            addResult('✅ Event listeners adicionados com sucesso!');
+            addResult('👆 Clique nos botões acima para testar');
+        });
+    </script>
+</body>
+</html>

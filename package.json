@@ -9,11 +9,17 @@
     "test": "jest",
     "test:watch": "jest --watch",
     "test:coverage": "jest --coverage",
+    "test:unit": "jest --selectProjects unit-tests",
+    "test:repos": "jest --selectProjects repository-tests",
+    "test:e2e": "jest --selectProjects e2e-tests",
+    "test:sequential": "jest --runInBand --detectOpenHandles",
     "migrate": "node src/database/migrate.js",
     "seed": "node src/database/seedData.js",
     "seed:force": "node src/database/seedData.js --force",
     "setup": "npm run migrate && npm run seed",
-    "reset": "npm run migrate && npm run seed:force"
+    "reset": "npm run migrate && npm run seed:force",
+    "type-check": "tsc --noEmit",
+    "type-check:watch": "tsc --noEmit --watch"
   },
   "keywords": ["expense", "tracker", "despesas", "categorias"],
   "author": "",
@@ -29,16 +35,11 @@
     "jest": "^29.7.0",
     "supertest": "^6.3.3",
     "nodemon": "^3.0.1",
-    "@types/jest": "^29.5.5"
-  },
-  "jest": {
-    "testEnvironment": "node",
-    "collectCoverageFrom": [
-      "src/**/*.js",
-      "!src/database/migrations/*.js"
-    ],
-    "testMatch": [
-      "**/tests/**/*.test.js"
-    ]
+    "@types/jest": "^29.5.5",
+    "typescript": "^5.0.0",
+    "@types/node": "^20.0.0",
+    "@types/express": "^4.17.0",
+    "@types/cors": "^2.8.0",
+    "@types/morgan": "^1.9.0"
   }
 }
